@@ -1,0 +1,5 @@
+table,sample,quantity,published
+Table I,Non-oil,Intercept,1.42
+Table I,Non-oil,ln_y60,0.60
+Table I,Non-oil,ln_s,0.69
+Table I,Non-oil,ln_ngd,-1.73
