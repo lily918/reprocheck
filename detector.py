@@ -98,6 +98,7 @@ def read_renv_lock(package_dir):
     return {
         "r_version": r_version,
         "versions": versions,
+        "all_packages": sorted(versions.keys()),
         "has_lock": True,
     }
 
@@ -165,6 +166,7 @@ def detect(package_dir):
         "r_version_source": r_version_source,
         "has_renv_lock": bool(lock),
         "packages": packages,
+        "renv_packages": lock["all_packages"] if lock else [],
         "entry_script": guess_entry_script(scripts, package_dir),
     }
 

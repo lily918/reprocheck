@@ -19,8 +19,10 @@ SYSTEM_DEPS = {
 def detect_system_deps(manifest):
     deps = set()
 
-    for pkg in manifest["packages"]:
-        name = pkg["name"]
+    direct = {pkg["name"] for pkg in manifest["packages"]}
+    all_pkgs = direct | set(manifest.get("renv_packages", []))
+
+    for name in all_pkgs:
         if name in SYSTEM_DEPS:
             deps.update(SYSTEM_DEPS[name])
 
